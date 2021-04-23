@@ -1,9 +1,15 @@
 import React from 'react'
 import {render} from '@testing-library/react'
+import {ThemeProvider} from 'emotion-theming'
+import {dark} from '../../themes'
 import CalculatorDisplay from '../calculator-display'
 
 test('renders', () => {
-  const {container} = render(<CalculatorDisplay value="0" />)
+  const {container} = render(
+    <ThemeProvider theme={dark}>
+      <CalculatorDisplay value="0" />
+    </ThemeProvider>,
+  )
   expect(container.firstChild).toMatchInlineSnapshot(`
     .emotion-0 {
       position: relative;
